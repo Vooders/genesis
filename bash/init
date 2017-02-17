@@ -1,6 +1,8 @@
 #!/bin/bash
-echo [Initiating]
+directory=$1
 
-directory_name=${PWD##*/}
-atom . &
+echo [Initiating]
+if [ "$directory" == '.' ]; then directory_name=${PWD##*/}; else directory_name=$(basename "$directory"); fi
+
+atom $directory &
 tm -t $directory_name
