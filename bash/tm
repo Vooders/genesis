@@ -18,6 +18,7 @@ if [ -z ${session_name+x} ]; then error "-t is required"; fi
 
 function new_session {
   tmux new-session -d -s $session_name
+  tmux send-keys "clear" C-m 
   tmux split-window -h
   tmux swap-pane
   tmux split-window -v

@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+const http = require('http');
+const fs = require('fs');
+
+const QUOTE_CACHE_FILE = `${__dirname}/quote.cache`
+const QUOTE_CACHE_FILE_ENCODING = 'utf-8'
+
+function retriveQuote(){
+  const options = {
+  	'host' : 'quotes.rest',
+  	'path' : '/qod.json'
+  }
+
+  http.get(options, (res) => {
+  	var body = ""
+  	res.on('data', (chunk) => {
+  		body += chunk;
+  	})
+  	res.on('end', () => {
+  		const quote = JSON.parse(body)
+  		const quoteDetails = quote['contents']['quotes'][0]
+      const quoteText = "'" + quoteDetails['quote'] + "' - " + quoteDetails['author']
+      fs.writeFile(QUOTE_CACHE_FILE, quoteText, QUOTE_CACHE_FILE_ENCODING, () => {})
+  		console.log(quoteText)
+  	})
+  })
+}
+
+function isToday(dateTime){
+  const today = new Date()
+  return (dateTime.toDateString() == today.toDateString())
+}
+
+fs.stat(QUOTE_CACHE_FILE, (error, fileStatistics) => {
+  if (!!fileStatistics && (isToday(new Date(fileStatistics.ctime)))){
+    fs.readFile(QUOTE_CACHE_FILE, QUOTE_CACHE_FILE_ENCODING, (error, quoteText) => {
+      console.log(quoteText);
+    })
+  }
+  else {
+    retriveQuote()
+  }
+})
