@@ -1,2 +1,5 @@
-# bash
-useful bash scripts
+# Genesis script for new machines
+Run 
+```
+./genesis/start
+```

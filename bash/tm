@@ -1,0 +1,27 @@
+#!/bin/bash
+function help {
+  echo "options:"
+  echo "-h           show help"
+  echo "-t           session name"
+  exit 0
+}
+
+while getopts 'ht:' flag; do
+  case "${flag}" in
+    h) help ;;
+    t) session_name=${OPTARG} ;;
+    *) error "Unexpected option ${flag}" ;;
+  esac
+done
+
+if [ -z ${session_name+x} ]; then error "-t is required"; fi
+
+function new_session {
+  tmux new-session -d -s $session_name
+  tmux split-window -h
+  tmux swap-pane
+  tmux split-window -v
+  tmux attach -t $session_name
+}
+
+tmux switch -t $session_name || tmux attach -t $session_name || new_session
