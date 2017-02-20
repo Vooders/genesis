@@ -3,26 +3,39 @@ function help {
   echo "options:"
   echo "-h           show help"
   echo "-t           session name"
+  echo "-d           directory"
   exit 0
 }
 
-while getopts 'ht:' flag; do
+while getopts 'hd:t:' flag; do
   case "${flag}" in
     h) help ;;
     t) session_name=${OPTARG} ;;
+    d) directory=${OPTARG} ;;
     *) error "Unexpected option ${flag}" ;;
   esac
 done
 
-if [ -z ${session_name+x} ]; then error "-t is required"; fi
-
-function new_session {
-  tmux new-session -d -s $session_name
-  tmux send-keys "clear" C-m 
-  tmux split-window -h
-  tmux swap-pane
-  tmux split-window -v
-  tmux attach -t $session_name
+function validate_session_name {
+  if [ -z ${session_name+x} ]; then error "-t is required"; fi
+  session_name_escaped=$( echo $session_name | sed 's/\./_/g' )
+  start_session $session_name_escaped
 }
 
-tmux switch -t $session_name || tmux attach -t $session_name || new_session
+function start_session() {
+  echo starting $1
+  tmux switch -t $1 || tmux attach -t $1 || new_session $1
+}
+
+function new_session {
+  tmux new-session -d -s $1
+  if [[ $directory ]]; then tmux send-keys "cd ${directory} && clear" Enter; fi
+  tmux split-window -h
+  tmux swap-pane
+  if [[ $directory ]]; then tmux send-keys "cd ${directory} && clear" Enter; fi
+  tmux split-window -v
+  if [[ $directory ]]; then tmux send-keys "cd ${directory} && clear" Enter; fi
+  tmux attach -t $1
+}
+
+validate_session_name
