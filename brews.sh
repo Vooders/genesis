@@ -5,6 +5,7 @@ brew install tmux
 brew install curl
 
 brew install python
+brew install docker
 
 brew cask install atom
 brew cask install google-chrome
