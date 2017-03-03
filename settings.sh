@@ -6,5 +6,3 @@ current_directory=${BASH_SOURCE[0]/%settings.sh}
 for filename in $current_directory/home-settings/.*; do
   cp $filename ~/
 done
-
-git config --global core.excludesfile '~/.gitignore'

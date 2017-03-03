@@ -1,0 +1,5 @@
+[user]
+name = Iain Mitchell
+email = iainjmitchell@gmail.com
+[core]
+excludesfile = ~/.gitignore
