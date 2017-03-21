@@ -1,5 +1,6 @@
 .DS_Store
 
 iain-env.sh
+iain-start.sh
 node_modules
 gems
