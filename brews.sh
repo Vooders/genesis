@@ -15,3 +15,5 @@ brew cask install google-drive
 brew cask install textual
 brew cask install postman
 brew cask install spotify
+brew cask install sequel-pro
+brew cask install coconutBattery 

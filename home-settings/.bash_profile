@@ -8,4 +8,6 @@ done
 if ! { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; } then
   dino
 fi
+
+source ~/.secrets
 # End of settings from genesis
