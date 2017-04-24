@@ -11,4 +11,6 @@ if ! { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; } then
 fi
 
 source ~/.secrets
+
+eval "$(docker-machine env default)"
 # End of settings from genesis

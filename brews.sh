@@ -5,6 +5,7 @@ brew install tmux
 brew install curl
 
 brew install python
+brew install docker
 brew install docker-machine
 brew install nvm
 brew install go
@@ -18,3 +19,4 @@ brew cask install postman
 brew cask install spotify
 brew cask install sequel-pro
 brew cask install coconutBattery
+brew cask install virtualbox
