@@ -1,5 +1,6 @@
 # Settings from genesis
 export PATH=$PATH:~/bin
+export GOPATH=~/workspace/go-workspace
 
 for script_filename in ~/.connections/*.sh; do
   source $script_filename
