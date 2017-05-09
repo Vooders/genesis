@@ -21,3 +21,4 @@ brew cask install spotify
 brew cask install sequel-pro
 brew cask install coconutBattery
 brew cask install virtualbox
+brew cask install screenhero
