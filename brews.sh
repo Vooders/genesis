@@ -10,6 +10,7 @@ brew install docker-machine
 brew install docker-compose
 brew install nvm
 brew install go
+brew install yarn
 
 brew cask install java
 brew cask install atom
