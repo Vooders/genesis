@@ -23,3 +23,6 @@ brew cask install sequel-pro
 brew cask install coconutBattery
 brew cask install virtualbox
 brew cask install screenhero
+brew cask install slack
+brew cask install visual-studio-code
+brew cask install evernote
