@@ -6,7 +6,6 @@ brew install curl
 
 brew install python
 brew install docker
-brew install docker-machine
 brew install docker-compose
 brew install nvm
 brew install go
