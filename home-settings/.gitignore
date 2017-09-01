@@ -4,3 +4,4 @@ iain-env.sh
 iain-start.sh
 node_modules
 gems
+*.pyc
