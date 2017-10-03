@@ -1,6 +1,8 @@
 #!/bin/bash
 echo [making brews]
 
+brew update
+
 brew install tmux
 brew install curl
 
@@ -8,6 +10,7 @@ brew install python
 brew install nvm
 brew install go
 brew install yarn
+brew install vegeta
 
 brew cask install docker
 brew cask install kitematic
