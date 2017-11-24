@@ -4,5 +4,5 @@ directory=$1
 echo [Initiating]
 if [ "$directory" == '.' ]; then directory_name=${PWD##*/}; else directory_name=$(basename "$directory"); fi
 
-atom $directory &
+code $directory &
 tm -t $directory_name -d $directory
