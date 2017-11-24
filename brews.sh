@@ -15,7 +15,6 @@ brew install vegeta
 brew cask install docker
 brew cask install kitematic
 brew cask install java
-brew cask install atom
 brew cask install google-chrome
 brew cask install google-drive
 brew cask install textual
