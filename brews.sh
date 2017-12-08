@@ -6,7 +6,7 @@ brew update
 brew install tmux
 brew install curl
 
-brew install python
+brew install python3
 brew install nvm
 brew install go
 brew install yarn
