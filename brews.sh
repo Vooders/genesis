@@ -29,3 +29,4 @@ brew cask install dropbox
 brew cask install dotnet
 brew cask install dotnet-sdk
 brew cask install boostnote
+brew cask install insomnia
